@@ -15,12 +15,17 @@ p {
     font-size: 1.5rem;
 }
 
-button {
+#start-quiz {
     background-color: darkturquoise;
     color:darkslategray;
     font-size: x-large;
     font-weight: bold;
     padding: 20px;
+    border: salmon solid 3px;
+}
+
+#start-quiz:hover {
+    cursor: pointer;
 }
 
 
