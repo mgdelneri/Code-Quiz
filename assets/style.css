@@ -6,8 +6,9 @@
 }
 
 h1 {
-    color:rgb(0, 206, 209);
-    margin-top: 60px;
+    color: darkturquoise;
+    margin-top: 40px;
+    font-size: 60px;
 }
 
 p {
