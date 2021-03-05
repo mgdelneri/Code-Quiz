@@ -4,7 +4,7 @@
 // Grab sections of the HTML and assign them variables
 var instructions = document.querySelector("#instructions");
 var startBtn = document.querySelector("#start-quiz");
-var quizContainer = document.querySelector("#quiz-QandA");
+var quizContainer = document.querySelector("#quiz");
 
 // Create elements for the empty "quizContainer" in HTML
 var timer = document.createElement("p");
@@ -29,6 +29,15 @@ function buildQuiz() {
     // First page with instructions hides when "start the quiz" button is clicked
     instructions.style.visibility = "hidden";
 
+    // Create elements for the empty "quizContainer" in HTML
+    var timer = document.createElement("p");
+    var question = document.createElement("p");
+    var answers = document.createElement("ul");
+    var option1 = document.createElement("li");
+    var option2 = document.createElement("li");
+    var option3 = document.createElement("li");
+    var option4 = document.createElement("li");
+
     // Append elements to "quizContainer"
     quizContainer.appendChild(timer);
     quizContainer.appendChild(question);
@@ -37,6 +46,15 @@ function buildQuiz() {
     answers.appendChild(option2);
     answers.appendChild(option3); 
     answers.appendChild(option4);
+
+    // Assign a class to each new element in "quizContainer"
+    timer.setAttribute("class", "timer");
+    question.setAttribute("class", "question");
+    answers.setAttribute("class", "answers");
+    option1.setAttribute("class", "option");
+    option2.setAttribute("class", "option");
+    option3.setAttribute("class", "option");
+    option4.setAttribute("class", "option");
 
     // Define countdown function
     function countdown() {
