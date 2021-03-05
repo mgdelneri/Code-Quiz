@@ -29,7 +29,16 @@ function buildQuiz() {
     answers.appendChild(option4);
 
     // Assign a class to each new element in "quizContainer"
+    timer.setAttribute("class", "timer");
+    question.setAttribute("class", "question");
+    answers.setAttribute("class", "answers");
+    option1.setAttribute("class", "option");
+    option2.setAttribute("class", "option");
+    option3.setAttribute("class", "option");
+    option4.setAttribute("class", "option");
+
     
+
 
 
 
