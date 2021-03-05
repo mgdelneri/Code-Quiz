@@ -29,5 +29,17 @@ p {
     cursor: pointer;
 }
 
+.question {
+    color: darkturquoise;
+    font-size: xx-large;
+    padding: 40px;
+}
+
+.option {
+    color: salmon;
+    text-align: center;
+    list-style-type: none;
+}
+
 
 
