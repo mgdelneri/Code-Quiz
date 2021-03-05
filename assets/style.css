@@ -29,6 +29,10 @@ p {
     cursor: pointer;
 }
 
+.timer {
+    padding-top: 30px;
+}
+
 .question {
     color: darkturquoise;
     font-size: xx-large;
@@ -38,7 +42,6 @@ p {
 .option {
     color: salmon;
     text-align: center;
-    list-style-type: none;
 }
 
 
