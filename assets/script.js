@@ -5,32 +5,42 @@
 var instructions = document.querySelector("#instructions");
 var startBtn = document.querySelector("#start-quiz");
 var quizContainer = document.querySelector("#quiz");
+var initials = document.querySelector("#initials");
+var results = document.querySelector("#results");
 
 // Create elements for the empty "quizContainer" in HTML
 var timer = document.createElement("p");
 var question = document.createElement("p");
 var answers = document.createElement("div");
-var option1 = document.createElement("div");
-var option2 = document.createElement("div");
-var option3 = document.createElement("div");
-var option4 = document.createElement("div");
+var option1 = document.createElement("button");
+var option2 = document.createElement("button");
+var option3 = document.createElement("button");
+var option4 = document.createElement("button");
 
 // Assign a class to each new element in "quizContainer"
 timer.setAttribute("class", "timer");
 question.setAttribute("class", "question");
 answers.setAttribute("class", "answers");
 option1.setAttribute("class", "option");
+//option1.setAttribute("id", "op1");
 option2.setAttribute("class", "option");
+//option2.setAttribute("id", "op2");
 option3.setAttribute("class", "option");
+//option3.setAttribute("id", "op3");
 option4.setAttribute("class", "option");
+//option4.setAttribute("id", "op4");
 
 // Function that will build and run the quiz questions
 function buildQuiz() {
-    // First page with instructions hides when "start the quiz" button is clicked
-    instructions.style.visibility = "hidden";
+    // First page with instructions disappears when "start the quiz" button is clicked
+    instructions.style.display = "none";
 
     // Test
-    question.textContent = "QUESTION";
+    question.textContent = "How many cookies in the cookie jar? How many cookies in the cookie jar? How many cookies in the cookie jar? How many cookies in the cookie jar?";
+    option1.textContent = "Answer A";
+    option2.textContent = "Answer B";
+    option3.textContent = "Answer C";
+    option4.textContent = "Answer D";
 
     // Append elements to "quizContainer"
     quizContainer.appendChild(timer);
@@ -63,28 +73,33 @@ function buildQuiz() {
                 timer.textContent = "Time's Up!!!";
                 timer.setAttribute("style", "color: red; font-size: 30px");
                 clearInterval(timeInterval);
+                initialsPage();
                 // TODO: run function that goes to input name page
             }
         }
         , 1000)
-
+        // Run time interval definition
         return timeInterval
     }
-
+    // Run countdown
     countdown();
 
-    
+}
 
-
-
-
-
-
-
-
+// Function that runs the page where user inputs their initials
+function initialsPage() { 
+    // Quiz page disappears when the quiz is over and/or time runs out
+    quizContainer.style.display = "none";
 
 
 }
+
+
+
+
+
+
+
 // TODO: Once the start button is pressed, the timer starts and the multiple-choice quiz starts
     // TODO: Function that runs the quiz: function quiz()
         // TODO: Show question and answer options

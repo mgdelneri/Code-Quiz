@@ -1,3 +1,8 @@
+:root {
+    --big-font-color: darkturquoise;
+    --small-font-color: salmon;
+}
+
 * {
     box-sizing: border-box;
     text-align: center;
@@ -6,23 +11,24 @@
 }
 
 h1 {
-    color: darkturquoise;
+    color: var(--big-font-color);
     margin-top: 40px;
     font-size: 60px;
 }
 
 p {
-    color: salmon;
+    color: var(--small-font-color);
     font-size: 1.5rem;
 }
 
 #start-quiz {
-    background-color: darkturquoise;
-    color:darkslategray;
+    background-color: var(--big-font-color);
+    color: darkslategray;
     font-size: x-large;
     font-weight: bold;
     padding: 20px;
-    border: salmon solid 3px;
+    border: 3px solid var(--small-font-color);
+    border-radius: 20px;
 }
 
 #start-quiz:hover {
@@ -30,19 +36,38 @@ p {
 }
 
 .timer {
-    padding-top: 30px;
+    padding-top: 5px;
 }
 
 .question {
-    color: darkturquoise;
-    font-size: xx-large;
-    padding: 40px;
+    color: var(--big-font-color);
+    font-size: 30px;
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: center;
+    margin-left: 250px;
+    margin-right: 250px;
+}
+
+.answers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .option {
-    color: salmon;
-    text-align: center;
+    border: 5px solid var(--big-font-color); 
+    border-radius: 25px;
+    padding: 20px;
+    color: var(--small-font-color);
+    font-size: 20px;
+    margin: 20px;
+    cursor: pointer;
 }
+
+
 
 
 
