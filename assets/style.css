@@ -1,13 +1,14 @@
 :root {
     --big-font-color: darkturquoise;
     --small-font-color: salmon;
+    --background: darkslategray;
 }
 
 * {
     box-sizing: border-box;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-    background-color:darkslategray;
+    background-color: var(--background);
 }
 
 h1 {
@@ -23,7 +24,7 @@ p {
 
 #start-quiz {
     background-color: var(--big-font-color);
-    color: darkslategray;
+    color: var(--background);
     font-size: x-large;
     font-weight: bold;
     padding: 20px;
@@ -65,6 +66,43 @@ p {
     font-size: 20px;
     margin: 20px;
     cursor: pointer;
+}
+
+#initials {
+    display: none;
+}
+
+#initials h1 {
+    margin-top: 60px;
+}
+
+#initials p {
+    font-size: 2rem;
+}
+
+#initials form {
+    padding-bottom: 20px;
+}
+
+#initials label {
+    color: var(--big-font-color);
+    font-size: x-large;
+}
+
+#name {
+    border: 3px solid var(--small-font-color);
+    border-radius: 10%;
+    color: yellowgreen;
+}
+
+#submit {
+    padding: 10px; 
+    background-color: var(--big-font-color);
+    color: var(--background);
+    border: 3px solid var(--small-font-color);
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: large;
 }
 
 

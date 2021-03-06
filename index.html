@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <div id="instructions">
+    <section id="instructions">
         <h1>Welcome to the Code Quiz!</h1>
         <p>This is a timed quiz made up of multiple-choice questions about the fundamentals of JavaScript.</p> 
         <p>There are 5 questions total and you have one minute to answer them.</p>
@@ -22,11 +22,21 @@
         <br>
         <br>
         <button id="start-quiz">Start the Quiz</button>
-    </div>
+    </section>
 
-    <div id="quiz"></div>
-    <div id="initials"></div>
-    <div id="results"></div>
+    <section id="quiz"></section>
+    
+    <section id="initials">
+        <h1>The quiz is over!!</h1>
+        <p>Your score is: <span></span></p>
+        <form>
+            <label for="name">Please enter your initials: </label>
+            <input type="text" name="name" id="name" required>
+        </form>
+        <button id="submit">Submit</button>
+    </section>
+
+    <section id="results"></section>
     
     <script type="text/javascript" src="./assets/script.js"></script>
 </body>
