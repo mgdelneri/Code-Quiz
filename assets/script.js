@@ -154,6 +154,8 @@ function buildQuiz() {
     }
 }
 
+//wtfwtfwtfwtfwtfwtfwtf
+
 
 // Function that runs the page where user inputs their initials
 function initialsPage(event) { 
