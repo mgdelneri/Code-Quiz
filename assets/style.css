@@ -89,20 +89,25 @@ p {
     font-size: x-large;
 }
 
-#name {
+#initials input {
     border: 3px solid var(--small-font-color);
     border-radius: 10%;
     color: yellowgreen;
+    font-size: x-large;
 }
 
 #submit {
-    padding: 10px; 
+    padding: 15px; 
     background-color: var(--big-font-color);
     color: var(--background);
     border: 3px solid var(--small-font-color);
     border-radius: 20px;
     font-weight: bold;
     font-size: large;
+}
+
+#submit-quiz:hover {
+    cursor: pointer;
 }
 
 

@@ -1,12 +1,10 @@
-// TODO: First page with instructions and a start button
-    // TODO: How to make instruction page disappear when button is pushed
-
 // Grab sections of the HTML and assign them variables
 var instructions = document.querySelector("#instructions");
 var startBtn = document.querySelector("#start-quiz");
 var quizContainer = document.querySelector("#quiz");
 var initials = document.querySelector("#initials");
 var results = document.querySelector("#results");
+var submitBtn = document.querySelector("#submit");
 
 // Create elements for the empty "quizContainer" in HTML
 var timer = document.createElement("p");
@@ -54,7 +52,7 @@ function buildQuiz() {
     // Define countdown function
     function countdown() {
         // Start the timer at 60 seconds
-        var timeLeft = 11;
+        var timeLeft = 2;
     
         // Define time interval function and attach it to a variable
         var timeInterval = setInterval(function() {
@@ -90,9 +88,15 @@ function buildQuiz() {
 function initialsPage() { 
     // Quiz page disappears when the quiz is over and/or time runs out
     quizContainer.style.display = "none";
+    // Name-input page is displayed; the "block" refers to the "display:none" in CSS
     initials.style.display = "block";
 
+    submitBtn.addEventListener("click", resultsPage)
+}
 
+function resultsPage() {
+
+    initials.style.display = "none";
 
 }
 
