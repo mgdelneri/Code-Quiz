@@ -73,9 +73,11 @@ function buildQuiz() {
                 timer.textContent = timeLeft + " Second Remaining";
                 timer.setAttribute("style", "color: red; font-size: 30px");
                 timeLeft--;
-            } else {
+            } else if (timeLeft === 0) {
                 timer.textContent = "Time's Up!!!";
                 timer.setAttribute("style", "color: red; font-size: 30px");
+                timeLeft--;
+            } else if (timeLeft < 0) {
                 clearInterval(timeInterval);
                 initialsPage();
             }
@@ -144,7 +146,9 @@ function buildQuiz() {
     function quizLoop() {
         
         for(var i = 0; i < 5; i++) {
-            // 
+            // Loop through all of the questions and answers
+            // Somehow grab info if correct answer is chosen
+            // Listen for buttons/Alert if answer is wrong or correct 
         }
 
     }
@@ -171,6 +175,9 @@ function resultsPage() {
 
 }
 
+startBtn.addEventListener("click", buildQuiz);
+
+
 
 
 
@@ -191,5 +198,4 @@ function resultsPage() {
 
 // TODO: Results page is shown, with initials of each quiz taker and their score, in descending order
 
-startBtn.addEventListener("click", buildQuiz);
 
