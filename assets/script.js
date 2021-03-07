@@ -3,6 +3,7 @@ var instructions = document.querySelector("#instructions");
 var startBtn = document.querySelector("#start-quiz");
 var quizContainer = document.querySelector("#quiz");
 var initials = document.querySelector("#initials");
+var input = document.querySelector("#input");
 var results = document.querySelector("#results");
 var submitBtn = document.querySelector("#submit");
 var currentQuizIndex = 0;
@@ -51,18 +52,17 @@ var questionsAnswersArray = [
       option3: "while loop",
       option4: "if...else",
     },
-    correctAnswer: "option4",
+    correctAnswer: "if...else",
   },
   {
-    question:
-      "From the given array, which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
+    question: "From the given array, which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
     answers: {
       option1: "3",
       option2: "0",
       option3: "1",
       option4: "2",
     },
-    correctAnswer: "option3",
+    correctAnswer: "1",
   },
   {
     question: "How do we stop a loop from repeating indefinitely?",
@@ -72,18 +72,17 @@ var questionsAnswersArray = [
       option3: "A loop will stop executing when the condition is true",
       option4: "When we have iterated through half of the condition",
     },
-    correctAnswer: "option2",
+    correctAnswer: "A loop will stop executing when the condition is false",
   },
   {
-    question:
-      "As a developer, I want to be able to remove the last element of my array and I want to also be able to add a new element to the beginning of my array. Which two array methods should I use?",
+    question: "As a developer, I want to be able to remove the last element of my array and I want to also be able to add a new element to the beginning of my array. Which two array methods should I use?",
     answers: {
       option1: "forEach() and pop()",
       option2: "push() and sort()",
       option3: "concat() and shift()",
       option4: "pop() and unshift()",
     },
-    correctAnswer: "option4",
+    correctAnswer: "pop() and unshift()",
   },
 ];
 
@@ -111,7 +110,7 @@ function buildQuiz() {
 // Define countdown function
 function countdown() {
   // Start the timer at 60 seconds
-  var timeLeft = 7;
+  var timeLeft = 40;
 
   // Define time interval function and attach it to a variable
   var timeInterval = setInterval(function () {
@@ -143,25 +142,37 @@ function countdown() {
 // Function that will run the loop with quiz questions and answers
 function generateQuiz() {
     
+    // Assign variable to grab items from the questionsAnswersArray
     var currentQuestionObject = questionsAnswersArray[currentQuizIndex];
-    var q = currentQuestionObject.question;
-    question.textContent = q;
+    question.textContent = currentQuestionObject.question;
     option1.textContent = currentQuestionObject.answers.option1;
+    option2.textContent = currentQuestionObject.answers.option2;
+    option3.textContent = currentQuestionObject.answers.option3;
+    option4.textContent = currentQuestionObject.answers.option4;
 
     option1.addEventListener("click", function() {
-        if (q === currentQuestionObject.correctAnswer) {
+        if (option1.textContent === currentQuestionObject.correctAnswer) {
             answerAlert.textContent = "Correct!"
+        } else if (option1.textContent != currentQuestionObject.correctAnswer) {
+            answerAlert.textContent = "Wrong!"
         };
         currentQuizIndex++;
-    })
+        generateQuiz();
+    });
 
-      // Loop through all of the questions and answers
-      // Somehow grab info if correct answer is chosen
-      // Listen for buttons/Alert if answer is wrong or correct
+    option2.addEventListener("click", function() {
+        if (option2.textContent === currentQuestionObject.correctAnswer) {
+            answerAlert.textContent = "Correct!"
+        } else if (option2.textContent != currentQuestionObject.correctAnswer) {
+            answerAlert.textContent = "Wrong!"
+        };
+        currentQuizIndex++;
+        generateQuiz();
+    });
 }
 
 // Function that runs the page where user inputs their initials
-function initialsPage(event) {
+function initialsPage() {
   // Quiz page disappears when the quiz is over and/or time runs out
   quizContainer.style.display = "none";
   // Name-input page is displayed; the "block" reverses "display:none" in CSS
