@@ -72,7 +72,6 @@ function buildQuiz() {
                 timer.setAttribute("style", "color: red; font-size: 30px");
                 clearInterval(timeInterval);
                 initialsPage();
-                // TODO: run function that goes to input name page
             }
         }
         , 1000)
@@ -85,18 +84,22 @@ function buildQuiz() {
 }
 
 // Function that runs the page where user inputs their initials
-function initialsPage() { 
+function initialsPage(event) { 
     // Quiz page disappears when the quiz is over and/or time runs out
     quizContainer.style.display = "none";
-    // Name-input page is displayed; the "block" refers to the "display:none" in CSS
+    // Name-input page is displayed; the "block" reverses "display:none" in CSS
     initials.style.display = "block";
 
     submitBtn.addEventListener("click", resultsPage)
 }
 
+// Function that runs the page where quiz results are displayed
 function resultsPage() {
-
+    // initialsPage disappears when user presses submit button
     initials.style.display = "none";
+    // Results page is displayed; the "block" reverses "display:none" in CSS
+    results.style.display = "block";
+    
 
 }
 

@@ -110,6 +110,21 @@ p {
     cursor: pointer;
 }
 
+#results {
+    display: none;
+}
+
+ol {
+    text-align: center;
+    margin-left: 500px;
+    margin-right: 500px;
+    border: 5px dotted var(--big-font-color);
+}
+
+li {
+    color: var(--small-font-color);
+}
+
 
 
 
