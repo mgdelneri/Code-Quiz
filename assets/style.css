@@ -119,6 +119,8 @@ ol {
     margin-left: 500px;
     margin-right: 500px;
     border: 5px dotted var(--big-font-color);
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 li {

@@ -20,13 +20,19 @@ timer.setAttribute("class", "timer");
 question.setAttribute("class", "question");
 answers.setAttribute("class", "answers");
 option1.setAttribute("class", "option");
-//option1.setAttribute("id", "op1");
+option1.setAttribute("id", "op1");
 option2.setAttribute("class", "option");
-//option2.setAttribute("id", "op2");
+option2.setAttribute("id", "op2");
 option3.setAttribute("class", "option");
-//option3.setAttribute("id", "op3");
+option3.setAttribute("id", "op3");
 option4.setAttribute("class", "option");
-//option4.setAttribute("id", "op4");
+option4.setAttribute("id", "op4");
+
+// Assign a variable to each individual answer by id
+// var one = document.querySelector("#op1");
+// var two = document.querySelector("#op2");
+// var three = document.querySelector("#op3");
+// var four = document.querySelector("#op4");
 
 // Function that will build and run the quiz questions
 function buildQuiz() {
@@ -78,10 +84,72 @@ function buildQuiz() {
         // Run time interval definition
         return timeInterval
     }
-    // Run countdown
-    countdown();
+        // Run countdown
+        countdown();
 
+        // Array of five quiz questions, answer options, and correct answers
+        var questionsAnswersArray = [{
+            question: "What are the six primitive data types in JavaScript?",
+            answers: {
+                option1: "string, number, boolean, bigInt, symbol, undefined",
+                option2: "sentence, int, truthy, bigInt, symbol, undefined",
+                option3: "string, num, falsy, bigInt, symbol, undefined",
+                option4: "sentence, float, data, bigInt, symbol, undefined"
+            },
+            correctAnswer: "option1"
+        },
+        {
+            question: "How do we declare a conditional statement in JavaScript?",
+            answers: {
+                option1: "for loop",
+                option2: "difference...between",
+                option3: "while loop", 
+                option4: "if...else"
+            },
+            correctAnswer: "option4"
+        },
+        {
+            question: "From the given array, which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
+            answers: {
+                option1: "3",
+                option2: "0",
+                option3: "1",
+                option4: "2"
+            },
+            correctAnswer: "option3"
+        },
+        {
+            question: "How do we stop a loop from repeating indefinitely?",
+            answers: {
+                option1: "We have to explicitly end the loop with the break keyword",
+                option2: "A loop will stop executing when the condition is false",
+                option3: "A loop will stop executing when the condition is true",
+                option4: "When we have iterated through half of the condition"
+            },
+            correctAnswer: "option2"
+        },
+        {
+            question: "As a developer, I want to be able to remove the last element of my array and I want to also be able to add a new element to the beginning of my array. Which two array methods should I use?",
+            answers: {
+                option1: "forEach() and pop()",
+                option2: "push() and sort()",
+                option3: "concat() and shift()",
+                option4: "pop() and unshift()"
+            },
+            correctAnswer: "option4"
+        }
+    ];
+
+    // Function that will run the loop with quiz questions and answers
+    function quizLoop() {
+        
+        for(var i = 0; i < 5; i++) {
+            // 
+        }
+
+    }
 }
+
 
 // Function that runs the page where user inputs their initials
 function initialsPage(event) { 
