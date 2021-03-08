@@ -6,8 +6,12 @@ var initials = document.querySelector("#initials");
 var input = document.querySelector("#input");
 var results = document.querySelector("#results");
 var submitBtn = document.querySelector("#submit");
+var recordedResult = document.querySelector("#recorded-result");
 var currentQuizIndex = 0;
-var listItem = document.querySelector(".list-item");
+var score = 0;
+
+// Start the timer at 60 seconds
+var timeLeft = 15;
 
 // Create elements for the empty "quizContainer" in HTML
 var timer = document.createElement("p");
@@ -89,8 +93,6 @@ var questionsAnswersArray = [
   },
 ];
 
-renderStoredInputs();
-
 // Function that will build and run the quiz questions
 function buildQuiz() {
   // First page with instructions disappears when "start the quiz" button is clicked
@@ -114,8 +116,6 @@ function buildQuiz() {
 
 // Define countdown function
 function countdown() {
-  // Start the timer at 60 seconds
-  var timeLeft = 15;
 
   // Define time interval function and attach it to a variable
   var timeInterval = setInterval(function () {
@@ -154,13 +154,12 @@ function generateQuiz() {
   option3.textContent = currentQuestionObject.answers.option3;
   option4.textContent = currentQuestionObject.answers.option4;
 
-  score = 0;
-
   option1.addEventListener("click", function () {
     if (option1.textContent === currentQuestionObject.correctAnswer) {
        score++;
        answerAlert.textContent = "Correct!";
     } else if (option1.textContent != currentQuestionObject.correctAnswer) {
+      timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
     currentQuizIndex++;
@@ -169,9 +168,10 @@ function generateQuiz() {
 
   option2.addEventListener("click", function () {
     if (option2.textContent === currentQuestionObject.correctAnswer) {
-      answerAlert.textContent = "Correct!";
       score++;
+      answerAlert.textContent = "Correct!";
     } else if (option2.textContent != currentQuestionObject.correctAnswer) {
+      timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
     currentQuizIndex++;
@@ -180,9 +180,10 @@ function generateQuiz() {
 
   option3.addEventListener("click", function () {
     if (option3.textContent === currentQuestionObject.correctAnswer) {
-      answerAlert.textContent = "Correct!";
       score++;
+      answerAlert.textContent = "Correct!";
     } else if (option3.textContent != currentQuestionObject.correctAnswer) {
+      timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
     currentQuizIndex++;
@@ -191,9 +192,10 @@ function generateQuiz() {
 
   option4.addEventListener("click", function () {
     if (option4.textContent === currentQuestionObject.correctAnswer) {
-      answerAlert.textContent = "Correct!";
       score++;
+      answerAlert.textContent = "Correct!";
     } else if (option4.textContent != currentQuestionObject.correctAnswer) {
+      timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
     currentQuizIndex++;
@@ -212,7 +214,7 @@ function initialsPage() {
   submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var initialsInput = input.value + " : " + score;
+    var initialsInput = input.value + " : " + score + " out of 5";
     localStorage.setItem("name", initialsInput);
   });
   
@@ -230,18 +232,7 @@ function resultsPage() {
   // Get input value from local storage and add it to results list
   //var initialsInput = input.value;
   var grabbedInput = localStorage.getItem("name");
-  listItem.textContent = grabbedInput;
-}
-
-// Function that grabs previously stored intials and scores from local storage
-function renderStoredInputs() {
-    var storedInputs = localStorage.getItem("name");
-    // If nothing stored, return the function
-    if (!name) {
-        return;
-    };
-    // If there are stored inputs, add them to the list in resultsPage
-    listItem.textContent = storedInputs;
+  recordedResult.textContent = grabbedInput;
 }
 
 startBtn.addEventListener("click", buildQuiz);
