@@ -7,6 +7,7 @@ var input = document.querySelector("#input");
 var results = document.querySelector("#results");
 var submitBtn = document.querySelector("#submit");
 var currentQuizIndex = 0;
+var listItem = document.querySelector(".list-item");
 
 // Create elements for the empty "quizContainer" in HTML
 var timer = document.createElement("p");
@@ -55,7 +56,8 @@ var questionsAnswersArray = [
     correctAnswer: "if...else",
   },
   {
-    question: "From the given array, which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
+    question:
+      "From the given array, which index is the letter 'b' on? ['a', 'b', 'c', 'd']",
     answers: {
       option1: "3",
       option2: "0",
@@ -75,7 +77,8 @@ var questionsAnswersArray = [
     correctAnswer: "A loop will stop executing when the condition is false",
   },
   {
-    question: "As a developer, I want to be able to remove the last element of my array and I want to also be able to add a new element to the beginning of my array. Which two array methods should I use?",
+    question:
+      "As a developer, I want to be able to remove the last element of my array and I want to also be able to add a new element to the beginning of my array. Which two array methods should I use?",
     answers: {
       option1: "forEach() and pop()",
       option2: "push() and sort()",
@@ -85,6 +88,8 @@ var questionsAnswersArray = [
     correctAnswer: "pop() and unshift()",
   },
 ];
+
+renderStoredInputs();
 
 // Function that will build and run the quiz questions
 function buildQuiz() {
@@ -110,7 +115,7 @@ function buildQuiz() {
 // Define countdown function
 function countdown() {
   // Start the timer at 60 seconds
-  var timeLeft = 40;
+  var timeLeft = 5;
 
   // Define time interval function and attach it to a variable
   var timeInterval = setInterval(function () {
@@ -134,41 +139,40 @@ function countdown() {
       initialsPage();
     }
   }, 1000);
-  
+
   // Run time interval definition
   return timeInterval;
 }
 
 // Function that will run the loop with quiz questions and answers
 function generateQuiz() {
-    
-    // Assign variable to grab items from the questionsAnswersArray
-    var currentQuestionObject = questionsAnswersArray[currentQuizIndex];
-    question.textContent = currentQuestionObject.question;
-    option1.textContent = currentQuestionObject.answers.option1;
-    option2.textContent = currentQuestionObject.answers.option2;
-    option3.textContent = currentQuestionObject.answers.option3;
-    option4.textContent = currentQuestionObject.answers.option4;
+  // Assign variable to grab items from the questionsAnswersArray
+  var currentQuestionObject = questionsAnswersArray[currentQuizIndex];
+  question.textContent = currentQuestionObject.question;
+  option1.textContent = currentQuestionObject.answers.option1;
+  option2.textContent = currentQuestionObject.answers.option2;
+  option3.textContent = currentQuestionObject.answers.option3;
+  option4.textContent = currentQuestionObject.answers.option4;
 
-    option1.addEventListener("click", function() {
-        if (option1.textContent === currentQuestionObject.correctAnswer) {
-            answerAlert.textContent = "Correct!"
-        } else if (option1.textContent != currentQuestionObject.correctAnswer) {
-            answerAlert.textContent = "Wrong!"
-        };
-        currentQuizIndex++;
-        generateQuiz();
-    });
+  option1.addEventListener("click", function () {
+    if (option1.textContent === currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Correct!";
+    } else if (option1.textContent != currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Wrong!";
+    }
+    currentQuizIndex++;
+    generateQuiz();
+  });
 
-    option2.addEventListener("click", function() {
-        if (option2.textContent === currentQuestionObject.correctAnswer) {
-            answerAlert.textContent = "Correct!"
-        } else if (option2.textContent != currentQuestionObject.correctAnswer) {
-            answerAlert.textContent = "Wrong!"
-        };
-        currentQuizIndex++;
-        generateQuiz();
-    });
+  option2.addEventListener("click", function () {
+    if (option2.textContent === currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Correct!";
+    } else if (option2.textContent != currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Wrong!";
+    }
+    currentQuizIndex++;
+    generateQuiz();
+  });
 }
 
 // Function that runs the page where user inputs their initials
@@ -178,6 +182,15 @@ function initialsPage() {
   // Name-input page is displayed; the "block" reverses "display:none" in CSS
   initials.style.display = "block";
 
+  // When submit button is clicked, the input value is stored locally
+  submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var initialsInput = input.value;
+    localStorage.setItem("name", initialsInput);
+  });
+  
+  // When the submit button is clicked, the resultsPage function is called
   submitBtn.addEventListener("click", resultsPage);
 }
 
@@ -187,20 +200,22 @@ function resultsPage() {
   initials.style.display = "none";
   // Results page is displayed; the "block" reverses "display:none" in CSS
   results.style.display = "block";
+
+  // Get input value from local storage and add it to results list
+  //var initialsInput = input.value;
+  var grabbedInput = localStorage.getItem("name");
+  listItem.textContent = grabbedInput;
+}
+
+// Function that grabs previously stored intials and scores from local storage
+function renderStoredInputs() {
+    var storedInputs = localStorage.getItem("name");
+    // If nothing stored, return the function
+    if (!name) {
+        return;
+    };
+    // If there are stored inputs, add them to the list in resultsPage
+    listItem.textContent = storedInputs;
 }
 
 startBtn.addEventListener("click", buildQuiz);
-
-// TODO: Once the start button is pressed, the timer starts and the multiple-choice quiz starts
-// TODO: Function that runs the quiz: function quiz()
-// TODO: Show question and answer options
-// TODO: Make each answer clickable
-// TODO: When user selects an answer, it automatically brings them to the next question
-// TODO: Whether the answer is right or wrong is displayed before going to the next question
-// TODO: If answer is wrong, some time is subtracted from the clock
-// TODO: Answers to each questions are stored and then later displayed as a score
-
-// TODO: At the end of the quiz OR when the timer runs out, the user is asked to enter their initials
-// TODO: User presses a button to see the results page
-
-// TODO: Results page is shown, with initials of each quiz taker and their score, in descending order
