@@ -154,9 +154,12 @@ function generateQuiz() {
   option3.textContent = currentQuestionObject.answers.option3;
   option4.textContent = currentQuestionObject.answers.option4;
 
+  score = 0;
+
   option1.addEventListener("click", function () {
     if (option1.textContent === currentQuestionObject.correctAnswer) {
-      answerAlert.textContent = "Correct!";
+       score++;
+       answerAlert.textContent = "Correct!";
     } else if (option1.textContent != currentQuestionObject.correctAnswer) {
       answerAlert.textContent = "Wrong!";
     }
@@ -167,7 +170,30 @@ function generateQuiz() {
   option2.addEventListener("click", function () {
     if (option2.textContent === currentQuestionObject.correctAnswer) {
       answerAlert.textContent = "Correct!";
+      score++;
     } else if (option2.textContent != currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Wrong!";
+    }
+    currentQuizIndex++;
+    generateQuiz();
+  });
+
+  option3.addEventListener("click", function () {
+    if (option3.textContent === currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Correct!";
+      score++;
+    } else if (option3.textContent != currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Wrong!";
+    }
+    currentQuizIndex++;
+    generateQuiz();
+  });
+
+  option4.addEventListener("click", function () {
+    if (option4.textContent === currentQuestionObject.correctAnswer) {
+      answerAlert.textContent = "Correct!";
+      score++;
+    } else if (option4.textContent != currentQuestionObject.correctAnswer) {
       answerAlert.textContent = "Wrong!";
     }
     currentQuizIndex++;
@@ -186,7 +212,7 @@ function initialsPage() {
   submitBtn.addEventListener("click", function(event) {
     event.preventDefault();
 
-    var initialsInput = input.value;
+    var initialsInput = input.value + " : " + score;
     localStorage.setItem("name", initialsInput);
   });
   
