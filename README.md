@@ -17,6 +17,8 @@ These are images of each section of the code quiz website, in order of appearanc
 ![](assets/screencapture-file-Users-Marina-Desktop-homework-coding-Code-Quiz-index-html-2021-03-08-14_38_46.png)
 
 
+PROCESS: 
+
 
 
 
