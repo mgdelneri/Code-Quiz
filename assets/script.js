@@ -7,11 +7,11 @@ var input = document.querySelector("#input");
 var results = document.querySelector("#results");
 var submitBtn = document.querySelector("#submit");
 var recordedResult = document.querySelector("#recorded-result");
+
+// Set variables for numerical values
 var currentQuizIndex = 0;
 var score = 0;
-
-// Start the timer at 60 seconds
-var timeLeft = 20;
+var timeLeft = 60;
 var timeInterval;
 
 // Create elements for the empty "quizContainer" in HTML
@@ -29,13 +29,9 @@ timer.setAttribute("class", "timer");
 question.setAttribute("class", "question");
 answers.setAttribute("class", "answers");
 option1.setAttribute("class", "option");
-//option1.setAttribute("id", "op1");
 option2.setAttribute("class", "option");
-//option2.setAttribute("id", "op2");
 option3.setAttribute("class", "option");
-//option3.setAttribute("id", "op3");
 option4.setAttribute("class", "option");
-//option4.setAttribute("id", "op4");
 answerAlert.setAttribute("id", "answerAlert");
 
 // Array of five quiz questions, answer options, and correct answers
@@ -94,7 +90,7 @@ var questionsAnswersArray = [
   },
 ];
 
-// Function that will build and run the quiz questions
+// Function that will build the quiz questions
 function buildQuiz() {
   // First page with instructions disappears when "start the quiz" button is clicked
   instructions.style.display = "none";
@@ -118,7 +114,7 @@ function buildQuiz() {
 // Define countdown function
 function countdown() {
   // Define time interval function and attach it to a variable
-    timeInterval = setInterval(function () {
+  timeInterval = setInterval(function () {
     if (timeLeft > 10) {
       timer.textContent = timeLeft + " Seconds Remaining";
       timeLeft--;
@@ -146,11 +142,13 @@ function countdown() {
 
 // Function that will run the loop with quiz questions and answers
 function generateQuiz() {
+  // This makes sure that if the user finishes quiz before the time is up, the webpage moves on to the initialsPage and countdown is stopped
   if (currentQuizIndex > 4) {
-      initialsPage();
-      clearInterval(timeInterval);
-      return;
+    initialsPage();
+    clearInterval(timeInterval);
+    return;
   }
+  
   // Assign variable to grab items from the questionsAnswersArray
   var currentQuestionObject = questionsAnswersArray[currentQuizIndex];
   question.textContent = currentQuestionObject.question;
@@ -158,9 +156,10 @@ function generateQuiz() {
   option2.textContent = currentQuestionObject.answers.option2;
   option3.textContent = currentQuestionObject.answers.option3;
   option4.textContent = currentQuestionObject.answers.option4;
+  
+  // Function run if option1 is clicked
   function Option1() {
-    console.log(option1.textContent);
-    console.log(currentQuestionObject.correctAnswer);
+
     if (option1.textContent === currentQuestionObject.correctAnswer) {
       score++;
       answerAlert.textContent = "Correct!";
@@ -168,18 +167,13 @@ function generateQuiz() {
       timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
-    // currentQuizIndex++;
     generateQuiz();
     removeEventListeners();
-  } 
-  
-  function removeEventListeners () {
-    option1.removeEventListener("click", Option1);
-    option2.removeEventListener("click", Option2);
-    option3.removeEventListener("click", Option3);
-    option4.removeEventListener("click", Option4);
   }
-    option1.addEventListener("click", Option1);
+  // Listener is added to option1 button
+  option1.addEventListener("click", Option1);
+
+  // Function run if option2 is clicked
   function Option2() {
     if (option2.textContent === currentQuestionObject.correctAnswer) {
       score++;
@@ -188,13 +182,14 @@ function generateQuiz() {
       timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
-    // currentQuizIndex++;
     generateQuiz();
     removeEventListeners();
-
   }
+  
+  // Listener is added to option2 button
   option2.addEventListener("click", Option2);
 
+  // Function run if option3 is clicked
   function Option3() {
     if (option3.textContent === currentQuestionObject.correctAnswer) {
       score++;
@@ -203,12 +198,13 @@ function generateQuiz() {
       timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
-    //currentQuizIndex++;
     generateQuiz();
     removeEventListeners();
-
   }
+  // Listener is added to option3 button
   option3.addEventListener("click", Option3);
+  
+  // Function run if option4 is clicked
   function Option4() {
     if (option4.textContent === currentQuestionObject.correctAnswer) {
       score++;
@@ -217,15 +213,22 @@ function generateQuiz() {
       timeLeft -= 2;
       answerAlert.textContent = "Wrong!";
     }
-    //currentQuizIndex++;
     generateQuiz();
     removeEventListeners();
   }
+  // Listener is added to option4 button
   option4.addEventListener("click", Option4);
 
+  // Function that removes listener for all buttons
+  function removeEventListeners() {
+    option1.removeEventListener("click", Option1);
+    option2.removeEventListener("click", Option2);
+    option3.removeEventListener("click", Option3);
+    option4.removeEventListener("click", Option4);
+  }
+
+  // Adds 1 to index for current question, so it moves on to the next question
   currentQuizIndex++;
-
-
 }
 
 // Function that runs the page where user inputs their initials
@@ -237,8 +240,9 @@ function initialsPage() {
 
   // When submit button is clicked, the input value is stored locally
   submitBtn.addEventListener("click", function (event) {
+    // Prevents default action for form input
     event.preventDefault();
-
+    
     var initialsInput = input.value + " : " + score + " out of 5";
     localStorage.setItem("name", initialsInput);
   });
@@ -253,11 +257,10 @@ function resultsPage() {
   initials.style.display = "none";
   // Results page is displayed; the "block" reverses "display:none" in CSS
   results.style.display = "block";
-
-  // Get input value from local storage and add it to results list
-  //var initialsInput = input.value;
+  // Grab input from local storage and add it to text field in recordedResult container
   var grabbedInput = localStorage.getItem("name");
   recordedResult.textContent = grabbedInput;
 }
 
+// Listener added to the start button on the information/initial page
 startBtn.addEventListener("click", buildQuiz);

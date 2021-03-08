@@ -1,46 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="./assets/style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" type="text/css" href="./assets/style.css" />
+  </head>
+  <body>
     <section id="instructions">
-        <h1>Welcome to the Code Quiz!</h1>
-        <p>This is a timed quiz made up of multiple-choice questions about the fundamentals of JavaScript.</p> 
-        <p>There are 5 questions total and you have one minute to answer them.</p>
-        <p>For each wrong answer, two seconds will be deducted from the time left.</p>
-        <p>NOTE: Once you click on an answer, it will automatically go to the next question.</p>
-        <p>After the quiz is over, you will be asked to submit your initials.</p> 
-        <p>A list of every quiz-taker's initials and their respective scores will then be shown (1 point for each correct answer).</p>
-        <p>When you are ready, press the button below.</p>
-        <p>GOOD LUCK!</p>
-        <br>
-        <br>
-        <button id="start-quiz">Start the Quiz</button>
+      <h1>Welcome to the Code Quiz!</h1>
+      <p>
+        This is a timed quiz made up of multiple-choice questions about the
+        fundamentals of JavaScript.
+      </p>
+      <p>There are 5 questions total and you have one minute to answer them.</p>
+      <p>
+        For each wrong answer, two seconds will be deducted from the time left.
+      </p>
+      <p>
+        Once you click on an answer, it will automatically go to the next
+        question.
+      </p>
+      <p>
+        After the quiz is over, you will be asked to submit your initials and
+        your score will be shown.
+      </p>
+      <p>When you are ready, click on the button below.</p>
+      <p>GOOD LUCK!</p>
+      <br />
+      <br />
+      <button id="start-quiz">Start the Quiz</button>
     </section>
 
     <section id="quiz"></section>
-    
+
     <section id="initials">
-        <h1>The quiz is over!!</h1>
-        <p>Your score is: <span></span></p>
-        <form action="">
-            <label for="name">Please enter your initials: </label>
-            <input type="text" name="name" id="input" required>
-        </form>
-        <button id="submit">Submit</button>
+      <h1>The quiz is over!!</h1>
+      <p>Your score is: <span></span></p>
+      <form action="">
+        <label for="name">Please enter your initials: </label>
+        <input type="text" name="name" id="input" required />
+      </form>
+      <button id="submit">Submit</button>
     </section>
 
     <section id="results">
-        <h1>Your Score</h1>
-        <p id="recorded-result"></p>
+      <h1>Your Score</h1>
+      <p id="recorded-result"></p>
     </section>
-    
+
     <script type="text/javascript" src="./assets/script.js"></script>
-</body>
+  </body>
 </html>

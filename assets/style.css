@@ -1,128 +1,125 @@
 :root {
-    --big-font-color: darkturquoise;
-    --small-font-color: salmon;
-    --background: darkslategray;
+  --big-font-color: darkturquoise;
+  --small-font-color: salmon;
+  --background: darkslategray;
 }
 
 * {
-    box-sizing: border-box;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--background);
+  box-sizing: border-box;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
 }
 
 h1 {
-    color: var(--big-font-color);
-    margin-top: 40px;
-    font-size: 60px;
+  color: var(--big-font-color);
+  margin-top: 40px;
+  font-size: 60px;
 }
 
 p {
-    color: var(--small-font-color);
-    font-size: 1.5rem;
+  color: var(--small-font-color);
+  font-size: 1.5rem;
 }
 
 #start-quiz {
-    background-color: var(--big-font-color);
-    color: var(--background);
-    font-size: x-large;
-    font-weight: bold;
-    padding: 20px;
-    border: 3px solid var(--small-font-color);
-    border-radius: 20px;
+  background-color: var(--big-font-color);
+  color: var(--background);
+  font-size: x-large;
+  font-weight: bold;
+  padding: 20px;
+  border: 3px solid var(--small-font-color);
+  border-radius: 20px;
 }
 
 #start-quiz:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .timer {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .question {
-    color: var(--big-font-color);
-    font-size: 30px;
-    padding-top: 10px;
-    padding-bottom: 5px;
-    text-align: center;
-    margin-left: 250px;
-    margin-right: 250px;
+  color: var(--big-font-color);
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  text-align: center;
+  margin-left: 250px;
+  margin-right: 250px;
 }
 
 .answers {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .option {
-    border: 5px solid var(--big-font-color); 
-    border-radius: 25px;
-    padding: 15px;
-    color: var(--small-font-color);
-    font-size: 20px;
-    margin: 20px;
-    cursor: pointer;
+  border: 5px solid var(--big-font-color);
+  border-radius: 25px;
+  padding: 15px;
+  color: var(--small-font-color);
+  font-size: 20px;
+  margin: 20px;
+  cursor: pointer;
 }
 
 #initials {
-    display: none;
+  display: none;
 }
 
 #initials h1 {
-    margin-top: 60px;
+  margin-top: 60px;
 }
 
 #initials p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 #initials form {
-    padding-bottom: 20px;
+  padding-bottom: 20px;
 }
 
 #initials label {
-    color: var(--big-font-color);
-    font-size: x-large;
+  color: var(--big-font-color);
+  font-size: x-large;
 }
 
 #initials input {
-    border: 3px solid var(--small-font-color);
-    border-radius: 10%;
-    color: yellowgreen;
-    font-size: x-large;
+  border: 3px solid var(--small-font-color);
+  border-radius: 10%;
+  color: yellowgreen;
+  font-size: x-large;
 }
 
 #submit {
-    padding: 15px; 
-    background-color: var(--big-font-color);
-    color: var(--background);
-    border: 3px solid var(--small-font-color);
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: large;
+  padding: 15px;
+  background-color: var(--big-font-color);
+  color: var(--background);
+  border: 3px solid var(--small-font-color);
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: large;
 }
 
 #submit-quiz:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #results {
-    display: none;
+  display: none;
 }
 
 #recorded-result {
-    text-align: center;
-    margin-left: 550px;
-    margin-right: 550px;
-    border: 5px dotted var(--big-font-color);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    color: var(--small-font-color);
+  text-align: center;
+  margin-left: 550px;
+  margin-right: 550px;
+  border: 5px dotted var(--big-font-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: var(--small-font-color);
 }
-
-
-
