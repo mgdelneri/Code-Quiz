@@ -115,7 +115,7 @@ function buildQuiz() {
 // Define countdown function
 function countdown() {
   // Start the timer at 60 seconds
-  var timeLeft = 5;
+  var timeLeft = 15;
 
   // Define time interval function and attach it to a variable
   var timeInterval = setInterval(function () {
